@@ -1,0 +1,58 @@
+﻿@model IList<EstoqueWEB.Models.Produto>
+
+<button class="btn">@Html.ActionLink("Novo Produto", "Form", "Produto")</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Quantidade</td>
+            <td>--</td>
+            <td>++</td>
+            <td>Editar</td>
+            <td>Deletar</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produtos in Model)
+        {
+            <tr>
+                <td>@produtos.Id</td>
+                <td>@Html.RouteLink(produtos.Nome, "VisualizaProduto", new { id = produtos.Id })</td>
+                <td id="quantidade@(produtos.Id)">@produtos.Quantidade</td>
+                <td><a href="#" onclick="decrementa(@produtos.Id)">Decrementar</a></td>
+                <td><a href="#" onclick="incrementa(@produtos.Id)">Incrementar</a></td>
+                <td><a href="/Produto/Edit/@produtos.Id">Editar</a></td>
+                <td><a href="/Produto/Deleta/@produtos.Id">Deletar</a></td>
+            </tr>
+        }
+    </tbody>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        function decrementa(produtoId) {
+            var url = "@Url.Action("DecrementaQtd","Produto")";
+            var params = { id : produtoId };
+            $.post(url, params, atualiza);
+        }
+
+        function incrementa(produtoId) {
+            var url = "@Url.Action("incrementaQtd","Produto")";
+            var params = { id : produtoId };
+            $.post(url, params, atualiza);
+        }
+
+        function atualiza(resposta) {
+            var elemento = $("#quantidade" + resposta.Id);
+            elemento.html(resposta.Quantidade);
+        }
+
+        function Deleta(produtoId) {
+            var url = "@Url.Action("Deleta","Produto")";
+            $.get(url, produtoId, atualizaD)
+        }
+
+        function atualizaD(resposta) {
+            resposta.html("*");
+        }
+    </script>
+</table>

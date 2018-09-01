@@ -1,0 +1,16 @@
+﻿<div>
+    <h1>Cadastro de Categorias</h1>
+</div>
+<form action="/Categoria/Atualiza" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="categoria.Id" value="@ViewBag.Categorias.Id" />
+
+    <label for="nome">Nome</label>
+    <input id="nome" name="categoria.Nome" value="@ViewBag.Categorias.Nome" class="form-control" />
+    @Html.ValidationMessage("categoria.Nome")
+
+    <label for="descricao">Descrição</label>
+    <input id="descricao" name="categoria.Descricao" value="@ViewBag.Categorias.Descricao" class="form-control" />
+
+    <input type="submit" value="Salvar" />
+</form>

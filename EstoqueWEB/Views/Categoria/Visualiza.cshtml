@@ -1,0 +1,22 @@
+﻿
+<div>
+    <ul class="nav navbar">
+        <li>
+            <strong>ID:</strong> @ViewBag.Categorias.Id
+            <br />
+        </li>
+        <li>
+            <strong>NOME:</strong> @ViewBag.Categorias.Nome
+            <br />
+        </li>
+        <li>
+            <strong>DESCRIÇÃO:</strong> @ViewBag.Categorias.Descricao
+            <br />
+        </li>
+        <li>
+            <button>
+                @Html.RouteLink("Volta para a lista de Categorias", "ListaDeCategorias");
+            </button>
+        </li>
+    </ul>
+</div>

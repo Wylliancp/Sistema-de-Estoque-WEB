@@ -1,0 +1,12 @@
+﻿<form action="/Usuario/Atualiza" method="post">
+        @Html.AntiForgeryToken()
+    <input type="hidden" value="@ViewBag.Usuario.Id" name="usuario.Id" />
+
+    <label for="nome">Nome:</label>
+    <input id="nome" name="usuario.Nome" value="@ViewBag.Usuario.Nome" class="form-control" />
+
+    <label for="senha">Senha:</label>
+    <input id="senha" name="usuario.Senha" value="@ViewBag.Usuario.Senha" class="form-control" />     
+   
+    <input type="submit" value="Salvar" />
+</form>

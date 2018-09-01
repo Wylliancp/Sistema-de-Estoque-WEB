@@ -1,0 +1,33 @@
+﻿
+<div>
+    <ul class="nav navbar">
+        <li>
+            <strong>ID:</strong> @ViewBag.Produtos.Id
+            <br />
+        </li>
+        <li>
+            <strong>NOME:</strong> @ViewBag.Produtos.Nome
+            <br />
+        </li>
+        <li>
+            <strong>CATEGORIA:</strong> @ViewBag.Produtos.Categoria.Nome
+            <br />
+        </li>
+        <li>
+            <strong>PREÇO:</strong> @ViewBag.Produtos.Preco
+            <br />
+        </li>
+        <li>
+            <strong>DESCRIÇÃO:</strong> @ViewBag.Produtos.Descricao
+            <br />
+        </li>
+        <li>
+            <strong>QUANTIDADE:</strong> @ViewBag.Produtos.Quantidade
+            <br />
+        </li>
+        <li><button>
+            @Html.RouteLink("Volta para a lista de Produtos", "ListaProdutos");
+            </button>
+        </li>
+    </ul>
+</div>

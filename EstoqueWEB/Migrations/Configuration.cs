@@ -1,0 +1,24 @@
+namespace EstoqueWEB.Migrations
+{
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<EstoqueWEB.DAO.EstoqueContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+            ContextKey = "EstoqueWEB.DAO.EstoqueContext";
+        }
+
+        protected override void Seed(EstoqueWEB.DAO.EstoqueContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data.
+        }
+    }
+}

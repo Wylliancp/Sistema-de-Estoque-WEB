@@ -1,0 +1,24 @@
+﻿@model IList<EstoqueWEB.Models.Usuario>
+
+<button class="btn">@Html.ActionLink("Novo Usuario", "Form", "Usuario")</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Editar</td>
+            <td>Deletar</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuarios in Model)
+        {
+            <tr>
+                <td>@usuarios.Id</td>
+                <td>@Html.RouteLink(usuarios.Nome, "VisualizaUsuarios", new { id = usuarios.Id })</td>
+                <td><a href="/Usuario/Edit/@usuarios.Id">Editar</a></td>
+                <td><a href="/Usuario/Deleta/@usuarios.Id">Deletar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

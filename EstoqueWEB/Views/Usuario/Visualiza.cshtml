@@ -1,0 +1,26 @@
+﻿@model IList<EstoqueWEB.Models.Usuario>
+
+<div>
+    <ul class="nav navbar">
+        @foreach (var usuarios in Model)
+        {
+            <li>
+                <strong>ID:</strong> @usuarios.Id
+                <br />
+            </li>
+            <li>
+                <strong>NOME:</strong> @usuarios.Nome
+                <br />
+            </li>
+            <li>
+                <strong>SENHA:</strong> @usuarios.Senha
+                <br />
+            </li>
+        }
+        <li>
+            <button>
+                @Html.ActionLink("Volta para a lista de Usuarios", "Index", "Usuario")
+            </button>
+        </li>
+    </ul>
+</div>

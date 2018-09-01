@@ -1,0 +1,26 @@
+﻿@model IList<EstoqueWEB.Models.CategoriaDoProduto>
+
+<button class="btn">@Html.ActionLink("Nova Categoria do Produto", "Form", "Produto")</button>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Editar</td>
+            <td>Deletar</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categorias in Model)
+        {
+            <tr>
+                <td>@categorias.Id</td>
+                <td>@Html.RouteLink(categorias.Nome, "VisualizaCategorias", new { id = categorias.Id })</td>
+                <td>@categorias.Descricao</td>
+                <td>@Html.ActionLink("Editar", "Edit", new { id = categorias.Id}, "Categoria")</td>
+                <td>@Html.ActionLink("Deletar", "Delete", new { id = categorias.Id }, "Categoria")</td>
+            </tr>
+        }
+    </tbody>
+</table>

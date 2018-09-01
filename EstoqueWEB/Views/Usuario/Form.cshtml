@@ -1,0 +1,14 @@
+﻿<form action="/Usuario/Adiciona" method="post">
+    @Html.AntiForgeryToken()
+
+    <label for="nome">Nome:</label>
+    <input id="nome" name="usuario.Nome" value="@ViewBag.Usuario.Nome" class="form-control" />
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="usuario.Senha" value="@ViewBag.Usuario.Senha" class="form-control" />
+
+    <input type="submit" value="Salvar" />
+</form>
+<button>
+    @Html.ActionLink("Volta para a lista de Usuarios", "Index", "Usuario")
+</button>
